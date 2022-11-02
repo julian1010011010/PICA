@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Javeriana\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Javeriana\\.nuget\\packages"
+    ]
+  }
+}
