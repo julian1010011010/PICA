@@ -1,0 +1,10 @@
+C:\Users\Javeriana\source\repos\Interface\bin\Debug\netcoreapp3.1\Interface.deps.json
+C:\Users\Javeriana\source\repos\Interface\bin\Debug\netcoreapp3.1\Interface.dll
+C:\Users\Javeriana\source\repos\Interface\bin\Debug\netcoreapp3.1\Interface.pdb
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.csproj.AssemblyReference.cache
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.AssemblyInfoInputs.cache
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.AssemblyInfo.cs
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.csproj.CoreCompileInputs.cache
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.dll
+C:\Users\Javeriana\source\repos\Interface\obj\Debug\netcoreapp3.1\Interface.pdb
