@@ -16,8 +16,45 @@ public class ProyectController : ControllerBase
         _context = context;
     }
 
+    [HttpGet("GetList")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult GetList()
+    {
+        try
+        {
+            List<dynamic> ListOjal = new List<dynamic>
+            {
+                new
+                {
+                    Nombre = "El Edgasr ALias Taranga",
+                     Padres ="Hijo de la nada"
+                },
+                new
+                {
+                    Nombre = "El Oscar ALias matamba",
+                    Padres ="No registra"
+                },
+                new
+                {
+                    Nombre = "Laura la peligrosa",
+                     Padres ="Hija de la nada"
+                },
 
-     
+                new
+                {
+                    Nombre = "Julian Alias Sutanga",
+                    Padres = "No registra"
+                }
+            };
+            return Ok(ListOjal);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e);
+        }
+    }
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -43,11 +80,11 @@ public class ProyectController : ControllerBase
     public IActionResult GetListProyectBy()
     {
         try
-        { 
+        {
             return Ok(_context.Proyecto.ToList());
         }
         catch (Exception e)
-        { 
+        {
             return BadRequest(e);
         }
     }
@@ -59,7 +96,7 @@ public class ProyectController : ControllerBase
     public IActionResult CreateProyect(Proyecto pProyecto)
     {
         try
-        { 
+        {
             _context.Proyecto.Add(pProyecto);
             return Ok(_context.SaveChanges());
         }
