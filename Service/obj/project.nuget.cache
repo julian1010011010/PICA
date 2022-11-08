@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hLYLGL51qz86QsDJb1/RUH0/oCaClC1m4A8FSIaDdiwlf6Fl5DIvNxVqFoT/qsHi7oB0vmz3UAtjuLuxQy6W8g==",
+  "dgSpecHash": "jynV5gzeXLlO49mEa/lrLlTB7MHMEDZRKOa/+mB8iXCjhc3w5Q2N+F5IT32AVhSyYupQhNUMbq+ygZkhU/d9ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Javeriana\\source\\repos\\Service\\Service.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Service\\Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oscar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
   "logs": []
 }

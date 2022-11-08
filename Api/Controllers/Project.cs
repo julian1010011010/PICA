@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Api.Models;
-
-public class ProyectController : ControllerBase
+[Route("api/[controller]")]
+[ApiController]
+public class ProjectController : ControllerBase
 {
     private readonly dbContext _context;
-    public ProyectController(dbContext context)
+
+    public ProjectController(dbContext context)
     {
 
         _context = context;
@@ -27,7 +29,7 @@ public class ProyectController : ControllerBase
             {
                 new
                 {
-                    Nombre = "El Edgasr ALias Taranga",
+                    Nombre = "El Edgar ALias Taranga",
                      Padres ="Hijo de la nada"
                 },
                 new
