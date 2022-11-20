@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;-webkit-print-color-adjust:exact; }
+
+@import "assets/scss/variables";
+@import "assets/scss/animations";
+@import "assets/scss/general";
+@import "assets/scss/button";
+@import "assets/scss/tables";
+@import "assets/scss/tabs";
+@import "assets/scss/expansionPanel";
+@import "assets/scss/quill-editor";
+@import "assets/scss/modal";
+@import "assets/scss/scroll";
+@import "assets/scss/form";
+@import "assets/scss/select";
+@import "assets/scss/helpMessage";
+@import "assets/scss/cards";

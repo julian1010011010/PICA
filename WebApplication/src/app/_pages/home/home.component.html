@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <mat-grid-list cols="4" rowHeight="1:2" style="opacity: 0.8">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows">
+      <img src="assets/img/{{tile.img}}">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
