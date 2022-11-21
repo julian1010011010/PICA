@@ -15,5 +15,7 @@ namespace Api.Models
         public bool? EstaDisponible { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public string Ciudad { get; set; }
+        public string Propietario { get; set; }
+        public string Cliente { get; set; }
     }
 }

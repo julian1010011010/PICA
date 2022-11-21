@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Javeriana\\source\\repos\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Javeriana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Javeriana\\source\\repos\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Javeriana\\AppData\\Roaming\\NuGet\\NuGet.Config",

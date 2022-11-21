@@ -19,15 +19,30 @@ namespace Api.Models
         {
         }
 
+        public virtual DbSet<Pago> Pago { get; set; }
         public virtual DbSet<Proyecto> Proyecto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-     
+       
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Pago>(entity =>
+            {
+                entity.HasKey(e => e.IdPago)
+                    .HasName("PK__Pago__FC851A3A5B9ADD05");
+
+                entity.ToTable("Pago", "Pagos");
+
+                entity.Property(e => e.FechaPago).HasColumnType("datetime");
+
+                entity.Property(e => e.Pagador).HasMaxLength(1);
+
+                entity.Property(e => e.Valor).HasColumnType("decimal(18, 0)");
+            });
+
             modelBuilder.Entity<Proyecto>(entity =>
             {
                 entity.ToTable("Proyecto", "Proyecto");

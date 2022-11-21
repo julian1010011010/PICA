@@ -12,66 +12,15 @@ using System.Text;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ProjectController : ControllerBase
+public class PagoController : ControllerBase
 {
     private readonly dbsoftwareContext _context;
 
-    public ProjectController(dbsoftwareContext context)
-    {
-
+    public PagoController(dbsoftwareContext context)
+    { 
         _context = context;
     }
-
-
-    [HttpGet("RunRabbitMQ")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public void RunRabbitMQ()
-    {
-        var factory = new ConnectionFactory()
-        {
-            HostName = "localhost" 
-        };
-        using (var connection = factory.CreateConnection())
-        {
-            using (var channel = connection.CreateModel())
-            { 
-                channel.QueueDeclare(queue: "ColaPICA", durable: false, exclusive: false, autoDelete: false, arguments: null);
-                var consumer = new EventingBasicConsumer(channel);
-                consumer.Received += (model, ea) =>
-                {
-                    var body = ea.Body.ToArray();
-                    int idProject = Int32.Parse(Encoding.UTF8.GetString(body));
-                    this.GetChangeStatusProject(idProject);
-                }; 
-                channel.BasicConsume(queue: "ColaPICA", autoAck: true, consumer: consumer); 
-            }
-        }
-    }
-
-
-    [HttpGet("GetChangeStatusProject")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public bool GetChangeStatusProject(int idProject)
-    {
-        bool updateSucceful = true;
-        try
-        {
-            Proyecto proyecto = _context.Proyecto.Find(idProject);
-            proyecto.EstaDisponible = false;
-            _context.SaveChanges();
-
-        }
-        catch (Exception)
-        {
-            updateSucceful = false;
-        }
-
-        return updateSucceful;
-    }
-
-
+      
     [HttpGet("GetList")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -114,14 +63,11 @@ public class ProjectController : ControllerBase
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult GetProyectById(int id)
+    public IActionResult GetPagoById(int id)
     {
         try
-        {
-            Proyecto proyecto = new Proyecto();
-
-            proyecto = _context.Proyecto.Find(id);
-            return Ok(proyecto);
+        { 
+            return Ok(_context.Pago.Find(id));
         }
         catch (Exception e)
         {
@@ -130,14 +76,14 @@ public class ProjectController : ControllerBase
         }
     }
 
-    [HttpGet("GetListProyect")]
+    [HttpGet("GetListPagos")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult GetListProyectBy()
+    public IActionResult GetListPagosBy()
     {
         try
         {
-            return Ok(_context.Proyecto.ToList());
+            return Ok(_context.Pago.ToList());
         }
         catch (Exception e)
         {
@@ -146,14 +92,14 @@ public class ProjectController : ControllerBase
     }
 
 
-    [HttpPost("CreateProyect")]
+    [HttpPost("CreatePago")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult CreateProyect(Proyecto pProyecto)
+    public IActionResult CreateProyect(Pago pPago)
     {
         try
         {
-            _context.Proyecto.Add(pProyecto);
+            _context.Pago.Add(pPago);
             return Ok(_context.SaveChanges());
         }
         catch (Exception e)
