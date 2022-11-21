@@ -8,41 +8,34 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Api.Models
 {
-    public partial class dbContext : DbContext
+    public partial class dbsoftwareContext : DbContext
     {
-        public dbContext()
+        public dbsoftwareContext()
         {
         }
 
-        public dbContext(DbContextOptions<dbContext> options)
+        public dbsoftwareContext(DbContextOptions<dbsoftwareContext> options)
             : base(options)
         {
         }
 
         public virtual DbSet<Proyecto> Proyecto { get; set; }
-   
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+     
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-     
             modelBuilder.Entity<Proyecto>(entity =>
             {
-                entity.HasKey(e => e.ProyectoId)
-                    .HasName("PK__Proyecto__CF241D6542CA15DA");
-
                 entity.ToTable("Proyecto", "Proyecto");
 
-                entity.Property(e => e.Nombre).HasMaxLength(250);
+                entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
 
-                entity.Property(e => e.Presupuesto).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Presupuesto).HasColumnType("decimal(32, 2)");
             });
-
-            modelBuilder.HasSequence<int>("ConsecutivoActaRendimientos");
 
             OnModelCreatingPartial(modelBuilder);
         }

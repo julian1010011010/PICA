@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Api\\Api.csproj": {}
+    "C:\\Users\\Javeriana\\source\\repos\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Api\\Api.csproj": {
+    "C:\\Users\\Javeriana\\source\\repos\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\oscar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\Pica\\Api\\obj\\",
+        "projectPath": "C:\\Users\\Javeriana\\source\\repos\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\Javeriana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Javeriana\\source\\repos\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\oscar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Javeriana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.31, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.30, )"
@@ -57,6 +61,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -77,8 +85,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -90,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

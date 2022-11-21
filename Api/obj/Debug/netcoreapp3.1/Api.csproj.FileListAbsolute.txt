@@ -277,3 +277,8 @@ C:\Users\oscar\OneDrive\Documentos\GitHub\Pica\Api\obj\Debug\netcoreapp3.1\Api.c
 C:\Users\oscar\OneDrive\Documentos\GitHub\Pica\Api\obj\Debug\netcoreapp3.1\Api.dll
 C:\Users\oscar\OneDrive\Documentos\GitHub\Pica\Api\obj\Debug\netcoreapp3.1\Api.pdb
 C:\Users\oscar\OneDrive\Documentos\GitHub\Pica\Api\obj\Debug\netcoreapp3.1\Api.genruntimeconfig.cache
+C:\Users\Javeriana\source\repos\Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Javeriana\source\repos\Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Javeriana\source\repos\Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Javeriana\source\repos\Api\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+C:\Users\Javeriana\source\repos\Api\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll

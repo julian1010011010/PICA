@@ -6,17 +6,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Api.Models;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
+
 [Route("api/[controller]")]
 [ApiController]
 public class ProjectController : ControllerBase
 {
-    private readonly dbContext _context;
+    private readonly dbsoftwareContext _context;
 
-    public ProjectController(dbContext context)
+    public ProjectController(dbsoftwareContext context)
     {
 
         _context = context;
     }
+
+
+    [HttpGet("RunRabbitMQ")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public void RunRabbitMQ()
+    {
+        var factory = new ConnectionFactory()
+        {
+            HostName = "localhost" 
+        };
+        using (var connection = factory.CreateConnection())
+        {
+            using (var channel = connection.CreateModel())
+            { 
+                channel.QueueDeclare(queue: "ColaPICA", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += (model, ea) =>
+                {
+                    var body = ea.Body.ToArray();
+                    int idProject = Int32.Parse(Encoding.UTF8.GetString(body));
+                    this.GetChangeStatusProject(idProject);
+                }; 
+                channel.BasicConsume(queue: "ColaPICA", autoAck: true, consumer: consumer); 
+            }
+        }
+    }
+
+
+    [HttpGet("GetChangeStatusProject")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public bool GetChangeStatusProject(int idProject)
+    {
+        bool updateSucceful = true;
+        try
+        {
+            Proyecto proyecto = _context.Proyecto.Find(idProject);
+            proyecto.EstaDisponible = false;
+            _context.SaveChanges();
+
+        }
+        catch (Exception)
+        {
+            updateSucceful = false;
+        }
+
+        return updateSucceful;
+    }
+
 
     [HttpGet("GetList")]
     [ProducesResponseType(StatusCodes.Status200OK)]

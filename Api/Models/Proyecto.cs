@@ -12,5 +12,8 @@ namespace Api.Models
         public int ProyectoId { get; set; }
         public string Nombre { get; set; }
         public decimal? Presupuesto { get; set; }
+        public bool? EstaDisponible { get; set; }
+        public DateTime? FechaCreacion { get; set; }
+        public string Ciudad { get; set; }
     }
 }
