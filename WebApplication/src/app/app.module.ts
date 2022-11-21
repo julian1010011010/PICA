@@ -21,10 +21,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { HomeComponent } from './_pages/home/home.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule} from '@angular/material/grid-list';
 import { CreateProjectComponent } from './_pages/create-project/create-project.component';
 import { MatInputModule } from '@angular/material/input';
 import { TableProjectComponent } from './_pages/table-project/table-project.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TableProjectComponent } from './_pages/table-project/table-project.comp
     MatListModule,
     MatToolbarModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
