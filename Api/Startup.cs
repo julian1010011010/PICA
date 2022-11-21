@@ -74,8 +74,7 @@ namespace Api
         }
 
         private void ConfigureDependencyInjection(IServiceCollection services)
-        {
-
+        { 
             services.AddDbContext<Api.Models.dbsoftwareContext>(options
              => options.UseSqlServer(Configuration.GetConnectionString("dbDatabase")));
         }

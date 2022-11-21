@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos\\Interface\\Interface.csproj",
+      "projectUniqueName": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Interface\\Interface.csproj",
       "projectName": "Interface",
-      "projectPath": "C:\\Users\\Javeriana\\source\\repos\\Interface\\Interface.csproj",
+      "projectPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Interface\\Interface.csproj",
       "packagesPath": "C:\\Users\\Javeriana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Javeriana\\source\\repos\\Interface\\obj\\",
+      "outputPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Interface\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Javeriana\\AppData\\Roaming\\NuGet\\NuGet.Config",
