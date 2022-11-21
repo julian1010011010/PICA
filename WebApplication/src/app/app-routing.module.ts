@@ -4,6 +4,10 @@ import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { HomeComponent } from './_pages/home/home.component';
 import { TableProjectComponent } from './_pages/table-project/table-project.component';
 import { CreateProjectComponent } from './_pages/create-project/create-project.component';
+import { ProyectoComponent } from './_pages/proyecto/proyecto.component';
+import { TablePagoComponent } from './_pages/table-pago/table-pago.component';
+import { CreatePagoComponent } from './_pages/create-pago/create-pago.component';
+import { PagoComponent } from './_pages/pago/pago.component';
 
 
 const routes: Routes = [
@@ -16,12 +20,36 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'search',
-        component: TableProjectComponent
+        path: 'proyectos',
+        component: ProyectoComponent
       },
       {
         path: 'crear-proyecto',
         component: CreateProjectComponent
+      },
+      {
+        path: 'editar-proyecto/:id',
+        component: CreateProjectComponent
+      },
+      {
+        path: 'administrar-proyectos',
+        component: TableProjectComponent
+      },
+      {
+        path: 'pagos',
+        component: PagoComponent
+      },
+      {
+        path: 'crear-pago',
+        component: CreatePagoComponent
+      },
+      {
+        path: 'editar-pago/:id',
+        component: CreatePagoComponent
+      },
+      {
+        path: 'administrar-pagos',
+        component: TablePagoComponent
       }
     ]
   }

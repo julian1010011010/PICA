@@ -1,30 +1,26 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProjectService } from 'src/app/_services/project/project.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { PagoService } from 'src/app/_services/pago/pago.service';
 
 @Component({
-  selector: 'app-table-project',
-  templateUrl: './table-project.component.html',
-  styleUrls: ['./table-project.component.scss']
+  selector: 'app-table-pago',
+  templateUrl: './table-pago.component.html',
+  styleUrls: ['./table-pago.component.scss']
 })
-export class TableProjectComponent implements OnInit {
-
+export class TablePagoComponent implements OnInit {
   ELEMENT_DATA: any[] = [];
 
   displayedColumns: string[] = [
     'nombre',
-    'presupuesto',
-    'estaDisponible',
-    'fechaCreacion',
-    'ciudad',
-    'propietario',
-    'cliente',
-    'proyectoId'
+    'idProyecto',
+    'valor',
+    'fechaPago',
+    'pagador',
+    'idPago'
   ];
 
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
@@ -35,13 +31,13 @@ export class TableProjectComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private projectSvc: ProjectService,
+    private pagoSvc: PagoService,
   ) {
   }
 
   ngOnInit(): void {
 
-    this.projectSvc.getProjects().subscribe(res => {
+    this.pagoSvc.getListPagos().subscribe(res => {
       if(res != null){
         this.dataSource = new MatTableDataSource( res );
         this.inicializarTabla();
@@ -59,5 +55,4 @@ export class TableProjectComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
-
 }

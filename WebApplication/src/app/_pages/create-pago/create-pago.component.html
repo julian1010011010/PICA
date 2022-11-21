@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Creación/Edición de proyectos</h1>
-  <form [formGroup]="project" (ngSubmit)="onSubmit()">
+  <h1>Creación/Edición de pagos</h1>
+  <form [formGroup]="pago" (ngSubmit)="onSubmit()">
     <mat-card class="shipping-card" style="padding: 1em 2em;">
       <mat-card-content class="mat-card">
         <div class="form-group">
@@ -9,7 +9,7 @@
               <div class="row">
                 <div class="pr-1">
                   <label class="label-left">
-                    Nombre del Proyecto
+                    Nombre del pago
                   </label>
                 </div>
               </div>
@@ -37,7 +37,30 @@
               <div class="row">
                 <div class="pr-1">
                   <label class="label-left">
-                    Presupuesto
+                    Proyecto Asociado
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex">
+            <mat-form-field>
+              <mat-label>Proyectos</mat-label>
+              <mat-select  formControlName="idProyecto">
+                <mat-option *ngFor="let team of teams" [value]="team.idProyecto">
+                  {{team.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="pr-1">
+                  <label class="label-left">
+                    Valor
                   </label>
                 </div>
               </div>
@@ -49,11 +72,11 @@
             >
               <input
                 matInput
-                aria-label="presupuesto"
+                aria-label="valor"
                 type="text"
                 maxlength="1000"
                 required
-                formControlName="presupuesto"
+                formControlName="valor"
                 required
               />
             </mat-form-field>
@@ -65,7 +88,7 @@
               <div class="row">
                 <div class="pr-1">
                   <label class="label-left">
-                    Fecha
+                    Fecha del pago
                   </label>
                 </div>
               </div>
@@ -76,9 +99,9 @@
               <input
               matInput
               [matDatepicker]="picker"
-              aria-label="fechaCreacion"
+              aria-label="fechaPago"
               type="text"
-              formControlName="fechaCreacion"
+              formControlName="fechaPago"
               required
               >
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -92,7 +115,7 @@
               <div class="row">
                 <div class="pr-1">
                   <label class="label-left">
-                    Ciudad
+                    Pagador
                   </label>
                 </div>
               </div>
@@ -104,67 +127,11 @@
             >
               <input
                 matInput
-                aria-label="ciudad"
+                aria-label="pagador"
                 type="text"
                 maxlength="1000"
                 required
-                formControlName="ciudad"
-                required
-              />
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="pr-1">
-                  <label class="label-left">
-                    Cliente
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <mat-form-field
-              class="full-width"
-            >
-              <input
-                matInput
-                aria-label="cliente"
-                type="text"
-                maxlength="1000"
-                required
-                formControlName="cliente"
-                required
-              />
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="pr-1">
-                  <label class="label-left">
-                    Propietario
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex">
-            <mat-form-field
-              class="full-width"
-            >
-              <input
-                matInput
-                aria-label="propietario"
-                type="text"
-                maxlength="1000"
-                required
-                formControlName="propietario"
+                formControlName="pagador"
                 required
               />
             </mat-form-field>
@@ -179,11 +146,11 @@
         class="btn-guardar"
         type="submit"
         (click)="onSubmit()"
-        [disabled]="project.invalid"
+        [disabled]="pago.invalid"
       >
       <mat-list-item>
         <mat-icon mat-list-icon>save</mat-icon>
-        <span class="menu-item">Crear Proyecto</span>
+        <span class="menu-item">Crear Pago</span>
       </mat-list-item>
       </button>
     </div>

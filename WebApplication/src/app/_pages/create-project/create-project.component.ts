@@ -17,7 +17,11 @@ export class CreateProjectComponent implements OnInit {
   project: FormGroup = this.fb.group({
     proyectoId: [null],
     nombre: [null, Validators.required],
-    presupuesto: [null, Validators.required]
+    presupuesto: [null, Validators.required],
+    fechaCreacion: [null, Validators.required],
+    ciudad: [null, Validators.required],
+    propietario: [null, Validators.required],
+    cliente: [null, Validators.required],
   });
 
   constructor(
@@ -53,7 +57,11 @@ export class CreateProjectComponent implements OnInit {
     const pProyecto = {
       proyectoId: this.project.get( 'proyectoId' ).value != null ? this.project.get( 'proyectoId' ).value : 0 ,
       nombre:  this.project.get( 'nombre' ).value,
-      presupuesto:  this.project.get( 'presupuesto' ).value
+      presupuesto:  this.project.get( 'presupuesto' ).value,
+      fechaCreacion:  this.project.get( 'fechaCreacion' ).value,
+      ciudad:  this.project.get( 'ciudad' ).value,
+      propietario:  this.project.get( 'propietario' ).value,
+      cliente:  this.project.get( 'cliente' ).value,
     };
 
     this.projectSvc.createProject( pProyecto )

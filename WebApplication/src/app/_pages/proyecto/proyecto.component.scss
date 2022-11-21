@@ -1,0 +1,17 @@
+mat-grid-tile {
+  background: lightblue;
+}
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title-section{
+  position: absolute;
+  font-size: 3em;
+  font-weight: bold;
+  background: #f1bf00 ;
+  color: #00448c;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}

@@ -26,6 +26,13 @@ import { CreateProjectComponent } from './_pages/create-project/create-project.c
 import { MatInputModule } from '@angular/material/input';
 import { TableProjectComponent } from './_pages/table-project/table-project.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CreatePagoComponent } from './_pages/create-pago/create-pago.component';
+import { TablePagoComponent } from './_pages/table-pago/table-pago.component';
+import { PagoComponent } from './_pages/pago/pago.component';
+import { ProyectoComponent } from './_pages/proyecto/proyecto.component';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -36,7 +43,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SkeletonComponent,
     SidenavComponent,
     CreateProjectComponent,
-    TableProjectComponent
+    TableProjectComponent,
+    CreatePagoComponent,
+    TablePagoComponent,
+    PagoComponent,
+    ProyectoComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +68,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatToolbarModule,
     MatGridListModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

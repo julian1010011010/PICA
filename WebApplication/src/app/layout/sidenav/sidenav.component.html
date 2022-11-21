@@ -2,19 +2,40 @@
   <mat-sidenav #sidenav mode="side" opened="isExpanded" class="sidenav-adr">
     <mat-nav-list>
 
-      <mat-list-item (click)="isExpanded = !isExpanded">
+      <mat-list-item (click)="isExpanded = !isExpanded;esProyecto = false; esPago = false;">
         <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
         </mat-icon>
       </mat-list-item>
 
-      <mat-list-item routerLink="/search" routerLinkActive="active">
-        <mat-icon mat-list-icon>search</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Ver Proyectos</span>
+      <mat-list-item routerLink="/proyectos" routerLinkActive="active" (click)="manageState(1)">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Proyectos</span>
       </mat-list-item>
 
-      <mat-list-item routerLink="/crear-proyecto" routerLinkActive="active">
-        <mat-icon mat-list-icon>create</mat-icon>
+      <mat-list-item routerLink="/crear-proyecto" routerLinkActive="active" class="sub-menu" *ngIf="esProyecto">
+        <mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
         <span *ngIf="isExpanded" class="menu-item">Crear Proyecto</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/administrar-proyectos" routerLinkActive="active" class="sub-menu" *ngIf="esProyecto">
+        <mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Administrar Proyecto</span>
+      </mat-list-item>
+
+
+      <mat-list-item routerLink="/pagos" routerLinkActive="active" (click)="manageState(2)">
+        <mat-icon mat-list-icon>attach_money</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Pagos</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/crear-pago" routerLinkActive="active" class="sub-menu" *ngIf="esPago">
+        <mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Crear Pago</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/administrar-pagos" routerLinkActive="active" class="sub-menu" *ngIf="esPago">
+        <mat-icon mat-list-icon>keyboard_arrow_right</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Administrar Pago</span>
       </mat-list-item>
 
     </mat-nav-list>
