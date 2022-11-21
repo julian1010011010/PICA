@@ -30,21 +30,21 @@ public class ProjectController : ControllerBase
     {
         var factory = new ConnectionFactory()
         {
-            HostName = "localhost" 
+            HostName = "172.17.0.4",
         };
         using (var connection = factory.CreateConnection())
         {
             using (var channel = connection.CreateModel())
-            { 
+            {
                 channel.QueueDeclare(queue: "ColaPICA", durable: false, exclusive: false, autoDelete: false, arguments: null);
                 var consumer = new EventingBasicConsumer(channel);
-                consumer.Received += (model, ea) =>
+                consumer.Received += async (model, ea) =>
                 {
                     var body = ea.Body.ToArray();
                     int idProject = Int32.Parse(Encoding.UTF8.GetString(body));
                     this.GetChangeStatusProject(idProject);
-                }; 
-                channel.BasicConsume(queue: "ColaPICA", autoAck: true, consumer: consumer); 
+                };
+                channel.BasicConsume(queue: "ColaPICA", autoAck: true, consumer: consumer);
             }
         }
     }
@@ -58,12 +58,12 @@ public class ProjectController : ControllerBase
         bool updateSucceful = true;
         try
         {
-            Proyecto proyecto = _context.Proyecto.Find(idProject);
+            Proyecto proyecto = _context.Proyecto.Where(r => r.ProyectoId == idProject).FirstOrDefault();
             proyecto.EstaDisponible = false;
             _context.SaveChanges();
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             updateSucceful = false;
         }

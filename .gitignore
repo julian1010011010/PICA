@@ -1,0 +1,10 @@
+
+*.v1
+Api/.vs/Api/v17/.suo
+*.cache
+*.cache
+*.cache
+Api/obj/Container/ContainerRunContext.cache
+Api/obj/Container/ContainerName.cache
+Api/obj/Container/ContainerId.cache
+*.cache
