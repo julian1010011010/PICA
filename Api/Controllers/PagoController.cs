@@ -17,10 +17,10 @@ public class PagoController : ControllerBase
     private readonly dbsoftwareContext _context;
 
     public PagoController(dbsoftwareContext context)
-    { 
+    {
         _context = context;
     }
-      
+
     [HttpGet("GetList")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -66,7 +66,7 @@ public class PagoController : ControllerBase
     public IActionResult GetPagoById(int id)
     {
         try
-        { 
+        {
             return Ok(_context.Pago.Find(id));
         }
         catch (Exception e)
@@ -95,16 +95,51 @@ public class PagoController : ControllerBase
     [HttpPost("CreatePago")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult CreateProyect(Pago pPago)
+    public IActionResult CreatePago(Pago pPago)
     {
         try
         {
             _context.Pago.Add(pPago);
-            return Ok(_context.SaveChanges());
+            _context.SaveChanges();
+
+            ///Se envia el id del proyecto cuando se crea al bus de 
+            ///eventos para que se desactive su disponibilidad
+       
+            SendProjectIdBus(Int32.Parse(pPago.IdProyecto));
+
+            return Ok();
         }
         catch (Exception e)
         {
             return BadRequest(e);
         }
+    }
+
+
+    private bool SendProjectIdBus(int pProjetId)
+    {
+        bool isSuccesfull = true;
+        try
+        {
+            var factory = new ConnectionFactory()
+            {
+                HostName = "172.17.0.4",
+            };
+            using (var connection = factory.CreateConnection())
+            {
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "ColaPICA", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    string message = pProjetId + string.Empty;
+                    var body = Encoding.UTF8.GetBytes(message);
+                    channel.BasicPublish(exchange: string.Empty, routingKey: "ColaPICA", basicProperties: null, body: body);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            isSuccesfull = false;
+        }
+        return isSuccesfull;
     }
 }

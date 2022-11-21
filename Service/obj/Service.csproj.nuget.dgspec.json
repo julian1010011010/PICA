@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Javeriana\\source\\repos2\\Service\\Service.csproj": {}
+    "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Service\\Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Javeriana\\source\\repos2\\Service\\Service.csproj": {
+    "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos2\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\Javeriana\\source\\repos2\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\Javeriana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Javeriana\\source\\repos2\\Service\\obj\\",
+        "outputPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Javeriana\\AppData\\Roaming\\NuGet\\NuGet.Config",

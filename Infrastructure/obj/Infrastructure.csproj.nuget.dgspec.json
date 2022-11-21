@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Javeriana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Javeriana\\source\\repos2\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Javeriana\\Documents\\GitHub\\Pagos\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Javeriana\\AppData\\Roaming\\NuGet\\NuGet.Config",
