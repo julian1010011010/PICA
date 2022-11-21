@@ -194,10 +194,15 @@ div.mat-paginator {
   margin: 0.5em 0.2em !important;
   line-height: 1;
   display: block;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  width: 100%;
   min-width: 10.5em;
+  width: auto;
+  background: #f1bf00;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  padding: 10px;
+  font-size: medium;
+  font-weight: bold;
 
   @media only screen and (max-width: 48em) {
     display: inherit;
@@ -339,7 +344,7 @@ div.mat-paginator {
   }
   .btn-table:hover {
     background-color: $mainColor;
-    color: $fontColor;
+    color: white;
   }
 }
 
@@ -376,4 +381,7 @@ th .mat-sort-header-button {
   > .table-responsive {
     width: calc(100% - 2em);
   }
+}
+tr.mat-header-row{
+  text-align: center;
 }

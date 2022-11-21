@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateProjectComponent implements OnInit {
 
   proyectoId: number = 0;
+  esEdicion: boolean = false;
   project: FormGroup = this.fb.group({
     proyectoId: [null],
     nombre: [null, Validators.required],

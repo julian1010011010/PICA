@@ -15,6 +15,7 @@ import { PagoService } from 'src/app/_services/pago/pago.service';
 export class CreatePagoComponent implements OnInit {
 
   pagoId: number = 0;
+  esEdicion: boolean = false;
   pago: FormGroup = this.fb.group({
     idPago: [null],
     nombre: [null, Validators.required],
@@ -23,15 +24,15 @@ export class CreatePagoComponent implements OnInit {
     fechaPago: [null, Validators.required],
     pagador: [null, Validators.required]
   });
-
+  proyectoSelected: any = null;
   teams: any[] = [
-    { idProyecto:1, name: 'Liverpool' },
-    { idProyecto:2, name: 'Manchester City' },
-    { idProyecto:3, name: 'Manchester United' },
-    { idProyecto:4, name: 'Arsenal' },
-    { idProyecto:5, name: 'Leicester City' },
-    { idProyecto:6, name: 'Chelsea' },
-    { idProyecto:7, name: 'Tottenham Hotspur' },
+    { idProyecto:1, name: 'Proyecto 1' },
+    { idProyecto:2, name: 'Proyecto 2' },
+    { idProyecto:3, name: 'Proyecto 3' },
+    { idProyecto:4, name: 'Proyecto 4' },
+    { idProyecto:5, name: 'Proyecto 5' },
+    { idProyecto:6, name: 'Proyecto 6' },
+    { idProyecto:7, name: 'Proyecto 7' },
 ];
 
   constructor(
@@ -49,11 +50,14 @@ export class CreatePagoComponent implements OnInit {
 
   buildForm(){
     if(this.pagoId > 0){
+      this.esEdicion = true;
       this.pagoSvc.getPagoById(
         this.pagoId
       ).subscribe(response => {
-        if(response != null && response.length > 0){
-          this.pago.patchValue(response[0]);
+        if(response != null){
+          this.pago.patchValue(response);
+          this.proyectoSelected = this.teams.find(r => r.idProyecto == this.pago.get( 'idProyecto' ).value);
+          console.log(this.proyectoSelected);
         }
       });
     }

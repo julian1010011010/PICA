@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Creación/Edición de proyectos</h1>
+  <h1><span *ngIf="esEdicion == false">Creación</span><span *ngIf="esEdicion == true">Edición</span> de Proyectos</h1>
   <form [formGroup]="project" (ngSubmit)="onSubmit()">
     <mat-card class="shipping-card" style="padding: 1em 2em;">
       <mat-card-content class="mat-card">
@@ -172,18 +172,18 @@
         </div>
       </mat-card-content>
     </mat-card>
-    <div class="text-center">
+    <div class="text-center" style="display: flex;justify-content: center;">
       <button
         mat-button
         color="warn"
-        class="btn-guardar"
+        class="btn-table animatedOpacity info-button min-w-11em"
         type="submit"
         (click)="onSubmit()"
         [disabled]="project.invalid"
       >
       <mat-list-item>
         <mat-icon mat-list-icon>save</mat-icon>
-        <span class="menu-item">Crear Proyecto</span>
+        <span class="menu-item"><span *ngIf="esEdicion == false">Crear</span><span *ngIf="esEdicion == true">Modificar</span> Proyecto</span>
       </mat-list-item>
       </button>
     </div>
