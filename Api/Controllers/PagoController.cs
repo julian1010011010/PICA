@@ -21,6 +21,59 @@ public class PagoController : ControllerBase
         _context = context;
     }
 
+<<<<<<< HEAD:Api/Controllers/Project.cs
+
+    [HttpGet("RunRabbitMQ")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public void RunRabbitMQ()
+    {
+        var factory = new ConnectionFactory()
+        {
+            HostName = "172.17.0.4",
+        };
+        using (var connection = factory.CreateConnection())
+        {
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "ColaPICA", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += async (model, ea) =>
+                {
+                    var body = ea.Body.ToArray();
+                    int idProject = Int32.Parse(Encoding.UTF8.GetString(body));
+                    this.GetChangeStatusProject(idProject);
+                };
+                channel.BasicConsume(queue: "ColaPICA", autoAck: true, consumer: consumer);
+            }
+        }
+    }
+
+
+    [HttpGet("GetChangeStatusProject")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public bool GetChangeStatusProject(int idProject)
+    {
+        bool updateSucceful = true;
+        try
+        {
+            Proyecto proyecto = _context.Proyecto.Where(r => r.ProyectoId == idProject).FirstOrDefault();
+            proyecto.EstaDisponible = false;
+            _context.SaveChanges();
+
+        }
+        catch (Exception ex)
+        {
+            updateSucceful = false;
+        }
+
+        return updateSucceful;
+    }
+
+
+=======
+>>>>>>> ac10ac76229253509601c041799c1929f0dbf4ad:Api/Controllers/PagoController.cs
     [HttpGet("GetList")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
