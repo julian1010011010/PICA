@@ -1,8 +1,0 @@
-version: "2"
-services:
-  client-angular:
-    build: .
-    ports: ["4200:4200"]
-    volumes:
-     - ./:/usr/src/app
-    command: bash
