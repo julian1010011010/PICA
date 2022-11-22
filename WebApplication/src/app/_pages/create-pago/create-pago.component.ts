@@ -24,16 +24,17 @@ export class CreatePagoComponent implements OnInit {
     fechaPago: [null, Validators.required],
     pagador: [null, Validators.required]
   });
-  proyectoSelected: any = null;
   teams: any[] = [
-    { idProyecto:1, name: 'Proyecto 1' },
-    { idProyecto:2, name: 'Proyecto 2' },
-    { idProyecto:3, name: 'Proyecto 3' },
-    { idProyecto:4, name: 'Proyecto 4' },
-    { idProyecto:5, name: 'Proyecto 5' },
-    { idProyecto:6, name: 'Proyecto 6' },
-    { idProyecto:7, name: 'Proyecto 7' },
-];
+      { idProyecto:1, name: 'Proyecto 1' },
+      { idProyecto:2, name: 'Proyecto 2' },
+      { idProyecto:3, name: 'Proyecto 3' },
+      { idProyecto:4, name: 'Proyecto 4' },
+      { idProyecto:5, name: 'Proyecto 5' },
+      { idProyecto:6, name: 'Proyecto 6' },
+      { idProyecto:7, name: 'Proyecto 7' },
+  ];
+  proyectoSelected: any = this.teams.find(r => r.idProyecto == 1);
+
 
   constructor(
     private fb: FormBuilder,
