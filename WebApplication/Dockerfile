@@ -1,19 +1,17 @@
-#Primera Etapa
-FROM node:10-alpine as build-step
+FROM node:6.9
 
-RUN mkdir -p /app
-
-WORKDIR /app
-
-COPY package.json /app
-
-RUN npm install
-
-COPY . /app
-
-RUN npm run build --prod
-
-#Segunda Etapa
-FROM nginx:1.17.1-alpine
-
-COPY --from=build-step /app/dist/WebApplication /usr/share/nginx/html
+# Agregamos un usuario
+RUN useradd --user-group --create-home --shell /bin/false app
+ENV HOME=/usr/src/app
+RUN mkdir $HOME
+WORKDIR $HOME
+# Instalamos angular cli en nuestra imágen
+RUN npm install -g @angular/cli && npm cache clean
+# Puerto entorno dev
+EXPOSE 4200
+# Puerto livereload
+EXPOSE 49153
+# Puerto Test
+EXPOSE 9876
+# Puerto e2e
+EXPOSE 49152
