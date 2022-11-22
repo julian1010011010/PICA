@@ -41,7 +41,7 @@ export class TableProjectComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.projectSvc.getProjects().subscribe(res => {
+    this.projectSvc.getProjectsV2().subscribe(res => {
       if(res != null){
         this.dataSource = new MatTableDataSource( res );
         this.inicializarTabla();
