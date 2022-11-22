@@ -8,29 +8,27 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectService {
 
-  private urlApi = `${ environment.apiUrl }/api/Project`;
+  private urlApi = `${ environment.apiUrl }/Ocelot/Proyecto/`;
 
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<any[]> {
     return this.http.get<any[]>(`${ this.urlApi }/GetList`);
   }
+ 
 
   getProjectById(pId: number): Observable<any[]>
   {
-    return this.http.get<any[]>(`${ this.urlApi }/pId=${pId}`);
+    return this.http.get<any[]>(`${ this.urlApi }/GetProjectby/pId=${pId}`);
   }
 
   getProjectsV2(): Observable<any[]> {
     return this.http.get<any[]>(`${ this.urlApi }/GetListProyect`);
   }
 
-  getBeneficiarios(): Observable<any[]>{
-    return this.http.get<any[]>(`${ this.urlApi }`);
-  }
 
   createProject( project: any ){
-    return this.http.post(`${ this.urlApi }/CreateProject`, project );
+    return this.http.post(`${ this.urlApi }/CreateProyect`, project );
   }
 
 

@@ -20,7 +20,7 @@ public class PagoController : ControllerBase
     {
         _context = context;
     }
-     
+
     [HttpGet("GetList")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -65,14 +65,17 @@ public class PagoController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult GetPagoById(int id)
     {
+        Pago pago = new Pago();
         try
         {
-            return Ok(_context.Pago.Find(id));
+      
+            pago = _context.Pago.Find(id);
+            return Ok(pago);
         }
         catch (Exception e)
         {
-
-            return BadRequest(e);
+       
+            return BadRequest(pago);
         }
     }
 
@@ -90,7 +93,7 @@ public class PagoController : ControllerBase
             return BadRequest(e);
         }
     }
-     
+
 
     [HttpPost("CreatePago")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -104,7 +107,7 @@ public class PagoController : ControllerBase
 
             ///Se envia el id del proyecto cuando se crea al bus de 
             ///eventos para que se desactive su disponibilidad
-       
+
             SendProjectIdBus(Int32.Parse(pPago.IdProyecto));
 
             return Ok();
@@ -114,7 +117,6 @@ public class PagoController : ControllerBase
             return BadRequest(e);
         }
     }
-
 
     private bool SendProjectIdBus(int pProjetId)
     {

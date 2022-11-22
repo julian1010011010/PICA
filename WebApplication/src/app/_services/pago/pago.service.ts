@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PagoService {
 
-  private urlApi = `${ environment.apiUrl }/api/Pago`;
+  private urlApi = `${ environment.apiUrl }/Ocelot/Pago/`;
 
   constructor(private http: HttpClient) { }
 
